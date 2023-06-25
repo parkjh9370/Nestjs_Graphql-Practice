@@ -1,0 +1,34 @@
+version: '3.7'
+
+services:
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: boilerplate-api
+    restart: unless-stopped
+    depends_on:
+      - mysqlDB
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./src:/app/src
+    command:
+      - 'yarn'
+      - 'start:dev'
+
+  mysqlDB:
+    container_name: mysql_db
+    image: mysql:latest
+    ports:
+      - 3306:3306
+    restart: on-failure
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: boiler
+      MYSQL_USER: boiler
+      MYSQL_PASSWORD: boilerpass
+      TZ: Asia/Seoul
