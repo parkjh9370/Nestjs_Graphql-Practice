@@ -19,7 +19,7 @@ const typeOrmModuleOptions = {
     username: config.MYSQL.USER,
     password: config.MYSQL.PASSWORD,
     database: 'boiler',
-    synchronize: false,
+    synchronize: true,
     entities: [
       __dirname + '/**/entities/*Entity{.ts,.js}',
       __dirname + '/**/entities/*View{.ts,.js}',

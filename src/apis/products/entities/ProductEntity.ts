@@ -1,3 +1,4 @@
+import { Field, Int, ObjectType } from '@nestjs/graphql';
 import { ProductCategory } from '../../productsCategories/entities/productCategoryEntity';
 import { ProductSaleslocation } from '../../productsSalesLocations/entities/productsSalesLocation';
 import { ProductTag } from '../../productsTags/entities/productsTagEntity';
@@ -14,33 +15,39 @@ import {
 } from 'typeorm';
 
 @Entity()
+@ObjectType()
 export class Product {
   @PrimaryGeneratedColumn('uuid')
+  @Field(() => String)
   id: string;
 
   @Column()
+  @Field(() => String)
   name: string;
 
   @Column()
+  @Field(() => String)
   description: string;
 
   @Column()
+  @Field(() => Int)
   price: number;
-
-  @Column()
-  isSoldout: boolean;
 
   @JoinColumn()
   @OneToOne(() => ProductSaleslocation)
+  @Field(() => ProductSaleslocation)
   productSaleslocation: ProductSaleslocation;
 
   @ManyToOne(() => ProductCategory)
+  @Field(() => ProductCategory)
   productCategory: ProductCategory;
 
   @ManyToOne(() => User)
+  @Field(() => User)
   user: User;
 
   @JoinTable()
   @ManyToMany(() => ProductTag, (productTags) => productTags.products)
+  @Field(() => [ProductTag])
   productTags: ProductTag[];
 }
