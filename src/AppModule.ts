@@ -10,6 +10,7 @@ import { UserModule } from './apis/users/UserModule';
 import { ProductCategoryModule } from './apis/productsCategories/ProductCategoryModule';
 import { ProductsSalesLocationModule } from './apis/productsSalesLocations/ProductsSalesLocationModule';
 import { ProductsTagsModule } from './apis/productsTags/ProductsCategoriesModule';
+import { AuthModule } from './apis/auth/authModule';
 
 const typeOrmModuleOptions = {
   useFactory: async (): Promise<TypeOrmModuleOptions> => ({
@@ -32,6 +33,7 @@ const typeOrmModuleOptions = {
 
 @Module({
   imports: [
+    AuthModule,
     UserModule,
     BoradsModule,
     ProductsModule,

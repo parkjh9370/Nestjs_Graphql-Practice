@@ -37,7 +37,8 @@ type ProductTag {
 type User {
   id: String!
   email: String!
-  password: String!
+  name: String!
+  age: Int!
 }
 
 type Product {
@@ -63,6 +64,8 @@ type Query {
 }
 
 type Mutation {
+  login(email: String!, password: String!): String!
+  createUser(email: String!, password: String!, name: String!, age: Int!): User!
   createBoard(createBoardInput: CreateBoardInput!): String
   createPrdouct(createProductInput: CreateProductInput!): Product!
   updateProduct(productId: String!, updateProductInput: UpdateProductInput!): Product!

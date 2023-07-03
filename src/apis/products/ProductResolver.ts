@@ -1,8 +1,9 @@
-import { Args, Mutation, ObjectType, Resolver } from '@nestjs/graphql';
+import { Args, Mutation, Resolver } from '@nestjs/graphql';
+import { Query } from '@nestjs/graphql';
+
 import { CreateProductInput } from './dto/CreateProudctInput';
 import { Product } from './entities/ProductEntity';
 import { ProductService } from './ProductService';
-import { Query } from '@nestjs/graphql';
 import { UpdateProductInput } from './dto/UpdateProductInput';
 import { deleteProductResponse } from './dto/deleteProductResponse';
 
