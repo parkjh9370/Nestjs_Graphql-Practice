@@ -10,7 +10,7 @@ import { UserModule } from './apis/users/UserModule';
 import { ProductCategoryModule } from './apis/productsCategories/ProductCategoryModule';
 import { ProductsSalesLocationModule } from './apis/productsSalesLocations/ProductsSalesLocationModule';
 import { ProductsTagsModule } from './apis/productsTags/ProductsCategoriesModule';
-import { AuthModule } from './apis/auth/authModule';
+import { AuthModule } from './apis/auth/AuthModule';
 
 const typeOrmModuleOptions = {
   useFactory: async (): Promise<TypeOrmModuleOptions> => ({

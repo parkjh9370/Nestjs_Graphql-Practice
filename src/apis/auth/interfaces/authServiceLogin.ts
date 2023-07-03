@@ -1,4 +1,4 @@
-import { User } from '../../users/entities/UserEntitiy';
+import { User } from '../../users/entities/UserEntitity';
 
 export interface IAuthServiceLogin {
   email: string;

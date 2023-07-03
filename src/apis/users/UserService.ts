@@ -3,7 +3,7 @@ import * as bcrypt from 'bcrypt';
 import { ConflictException, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { User } from './entities/UserEntitiy';
+import { User } from './entities/UserEntitity';
 import {
   IUserServiceCreate,
   IUserServiceFindOneByEmail,
@@ -16,7 +16,7 @@ export class UserService {
     private readonly userRepository: Repository<User>,
   ) {}
 
-  findOneByEmail({ email }: IUserServiceFindOneByEmail) {
+  findOneByEmail({ email }: IUserServiceFindOneByEmail): Promise<User> {
     return this.userRepository.findOne({ where: { email } });
   }
 
