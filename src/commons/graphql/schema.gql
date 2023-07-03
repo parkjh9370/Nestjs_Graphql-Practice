@@ -45,10 +45,15 @@ type Product {
   name: String!
   description: String!
   price: Int!
+  deletedAt: String!
   productSaleslocation: ProductSaleslocation!
   productCategory: ProductCategory!
   user: User!
   productTags: [ProductTag!]!
+}
+
+type deleteProductResponse {
+  isDeleted: Boolean!
 }
 
 type Query {
@@ -61,6 +66,7 @@ type Mutation {
   createBoard(createBoardInput: CreateBoardInput!): String
   createPrdouct(createProductInput: CreateProductInput!): Product!
   updateProduct(productId: String!, updateProductInput: UpdateProductInput!): Product!
+  deleteProduct(productId: String!): deleteProductResponse!
 }
 
 input CreateBoardInput {

@@ -4,6 +4,8 @@ import { ValidationPipe } from '@nestjs/common';
 import { HttpExceptionFilter } from './commons/filter/httpExceptionFilter';
 
 async function bootstrap() {
+  process.env.TZ = 'Asia/Seoul';
+
   const app = await NestFactory.create(AppModule);
   app.useGlobalPipes(new ValidationPipe());
   app.useGlobalFilters(new HttpExceptionFilter());

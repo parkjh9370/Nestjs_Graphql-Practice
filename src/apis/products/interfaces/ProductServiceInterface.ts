@@ -13,3 +13,7 @@ export interface IProductServiceUpdate {
   productId: string;
   updateProductInput: UpdateProductInput;
 }
+
+export interface IProductServiceDelete {
+  productId: string;
+}

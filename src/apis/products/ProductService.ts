@@ -1,12 +1,15 @@
+import * as dayjs from 'dayjs';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Product } from './entities/ProductEntity';
 import {
   IProductServiceCreate,
+  IProductServiceDelete,
   IProductServiceUpdate,
   IProductsServiceFindOne,
 } from './interfaces/ProductServiceInterface';
+import { deleteProductResponse } from './dto/deleteProductResponse';
 
 @Injectable()
 export class ProductService {
@@ -16,11 +19,17 @@ export class ProductService {
   ) {}
 
   findAll(): Promise<Product[]> {
-    return this.productRepository.find();
+    console.log(dayjs(new Date()).format('YYYY-MM-DD HH:mm:ss'));
+
+    return this.productRepository.find({
+      where: { deletedAt: '0000-00-00 00:00:00' },
+    });
   }
 
   findOne({ productId }: IProductsServiceFindOne): Promise<Product> {
-    return this.productRepository.findOne({ where: { id: productId } });
+    return this.productRepository.findOne({
+      where: { id: productId, deletedAt: '0000-00-00 00:00:00' },
+    });
   }
 
   create({ createProductInput }: IProductServiceCreate): Promise<Product> {
@@ -42,5 +51,16 @@ export class ProductService {
       ...updateProductInput,
     });
     return result;
+  }
+
+  async delete({
+    productId,
+  }: IProductServiceDelete): Promise<deleteProductResponse> {
+    this.productRepository.update(
+      { id: productId },
+      { deletedAt: dayjs(new Date()).format('YYYY-MM-DD HH:mm:ss') },
+    );
+
+    return { isDeleted: true };
   }
 }

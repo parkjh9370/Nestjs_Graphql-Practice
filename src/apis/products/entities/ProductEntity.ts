@@ -5,6 +5,7 @@ import { ProductTag } from '../../productsTags/entities/productsTagEntity';
 import { User } from '../../users/entities/UserEntitiy';
 import {
   Column,
+  DeleteDateColumn,
   Entity,
   JoinColumn,
   JoinTable,
@@ -32,6 +33,10 @@ export class Product {
   @Column()
   @Field(() => Int)
   price: number;
+
+  @Column({ default: '0000-00-00 00:00:00' })
+  @Field(() => String)
+  deletedAt: string;
 
   @JoinColumn()
   @OneToOne(() => ProductSaleslocation)
