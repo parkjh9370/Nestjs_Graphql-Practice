@@ -60,6 +60,7 @@ type Query {
 type Mutation {
   createBoard(createBoardInput: CreateBoardInput!): String
   createPrdouct(createProductInput: CreateProductInput!): Product!
+  updateProduct(productId: String!, updateProductInput: UpdateProductInput!): Product!
 }
 
 input CreateBoardInput {
@@ -72,4 +73,10 @@ input CreateProductInput {
   name: String!
   description: String!
   price: Int!
+}
+
+input UpdateProductInput {
+  name: String
+  description: String
+  price: Int
 }

@@ -4,6 +4,7 @@ import { Repository } from 'typeorm';
 import { Product } from './entities/ProductEntity';
 import {
   IProductServiceCreate,
+  IProductServiceUpdate,
   IProductsServiceFindOne,
 } from './interfaces/ProductServiceInterface';
 
@@ -27,6 +28,19 @@ export class ProductService {
       ...createProductInput,
     });
 
+    return result;
+  }
+
+  async update({
+    productId,
+    updateProductInput,
+  }: IProductServiceUpdate): Promise<Product> {
+    const product = await this.findOne({ productId });
+
+    const result = this.productRepository.save({
+      ...product,
+      ...updateProductInput,
+    });
     return result;
   }
 }
