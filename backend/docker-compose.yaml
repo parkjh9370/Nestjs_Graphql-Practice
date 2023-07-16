@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: boilerplate-api
+    container_name: graphqltoy
     restart: unless-stopped
     depends_on:
       - mysqlDB
@@ -28,7 +28,7 @@ services:
       - --collation-server=utf8mb4_unicode_ci
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: boiler
-      MYSQL_USER: boiler
-      MYSQL_PASSWORD: boilerpass
+      MYSQL_DATABASE: graphqltoy
+      MYSQL_USER: graphqltoy
+      MYSQL_PASSWORD: graphqltoy
       TZ: Asia/Seoul

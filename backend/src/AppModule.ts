@@ -19,7 +19,7 @@ const typeOrmModuleOptions = {
     port: config.MYSQL.PORT as unknown as number,
     username: config.MYSQL.USER,
     password: config.MYSQL.PASSWORD,
-    database: 'boiler',
+    database: 'graphqltoy',
     synchronize: true,
     entities: [
       __dirname + '/**/entities/*Entity{.ts,.js}',
