@@ -52,7 +52,7 @@ export class AuthService {
   issueAccessToken({ user }: IAuthServiceGetAccessToken): string {
     return this.jwtService.sign(
       { sub: user.id },
-      { secret: 'my-secret-key', expiresIn: '30s' },
+      { secret: 'my-secret-key', expiresIn: '1h' },
     );
   }
 

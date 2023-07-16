@@ -11,6 +11,7 @@ import { ProductCategoryModule } from './apis/productsCategories/ProductCategory
 import { ProductsSalesLocationModule } from './apis/productsSalesLocations/ProductsSalesLocationModule';
 import { ProductsTagsModule } from './apis/productsTags/ProductsCategoriesModule';
 import { AuthModule } from './apis/auth/authModule';
+import { PointsTransactionsModule } from './pointTransactions/PointsTransactionsModule';
 
 const typeOrmModuleOptions = {
   useFactory: async (): Promise<TypeOrmModuleOptions> => ({
@@ -40,6 +41,7 @@ const typeOrmModuleOptions = {
     ProductCategoryModule,
     ProductsTagsModule,
     ProductsSalesLocationModule,
+    PointsTransactionsModule,
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       autoSchemaFile: 'src/commons/graphql/schema.gql',

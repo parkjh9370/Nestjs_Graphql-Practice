@@ -39,6 +39,7 @@ type User {
   email: String!
   name: String!
   age: Int!
+  point: Int!
 }
 
 type Product {
@@ -57,6 +58,20 @@ type deleteProductResponse {
   isDeleted: Boolean!
 }
 
+type PointTransaction {
+  id: String!
+  impUid: String!
+  amount: Int!
+  status: POINT_TRANSACTION_STATUS_ENUM!
+  user: User!
+  createdAt: DateTime!
+}
+
+enum POINT_TRANSACTION_STATUS_ENUM {
+  PAYMENT
+  CANCEL
+}
+
 type Query {
   fetchUser: String!
   fetchBoards: [Board!]
@@ -72,6 +87,7 @@ type Mutation {
   createPrdouct(createProductInput: CreateProductInput!): Product!
   updateProduct(productId: String!, updateProductInput: UpdateProductInput!): Product!
   deleteProduct(productId: String!): deleteProductResponse!
+  createPointTransaction(impUid: String!, amount: Int!): PointTransaction!
 }
 
 input CreateBoardInput {
