@@ -10,7 +10,7 @@ import { UserModule } from './apis/users/UserModule';
 import { ProductCategoryModule } from './apis/productsCategories/ProductCategoryModule';
 import { ProductsSalesLocationModule } from './apis/productsSalesLocations/ProductsSalesLocationModule';
 import { ProductsTagsModule } from './apis/productsTags/ProductsCategoriesModule';
-import { AuthModule } from './apis/auth/AuthModule';
+import { AuthModule } from './apis/auth/authModule';
 
 const typeOrmModuleOptions = {
   useFactory: async (): Promise<TypeOrmModuleOptions> => ({
@@ -43,6 +43,7 @@ const typeOrmModuleOptions = {
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       autoSchemaFile: 'src/commons/graphql/schema.gql',
+      context: ({ req, res }) => ({ req, res }), // req는 기본적으로 들어오지만, res도 들어오게 하기 위해
     }),
     // TypeOrmModule.forRootAsync({
     //   type: 'mysql',

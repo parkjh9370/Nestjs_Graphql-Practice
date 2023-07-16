@@ -2,8 +2,8 @@ import { Module } from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
 
 import { UserModule } from '../users/UserModule';
-import { AuthResolver } from './AuthResolver';
-import { AuthService } from './AuthService';
+import { AuthResolver } from './authResolver';
+import { AuthService } from './authService';
 import { JwtAccessStrategy } from './strategies/JwtAccessStrategy';
 
 @Module({

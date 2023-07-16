@@ -58,6 +58,7 @@ type deleteProductResponse {
 }
 
 type Query {
+  fetchUser: String!
   fetchBoards: [Board!]
   fetchProducts: [Product!]!
   fetchProuduct(proudctId: String!): Product!
