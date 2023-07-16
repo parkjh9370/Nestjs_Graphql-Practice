@@ -6,6 +6,7 @@ import { UserService } from '../users/UserService';
 import {
   IAuthServiceGetAccessToken,
   IAuthServiceLogin,
+  IAuthServiceRestoreAccessToken,
   IAuthServiceSetRefreshToken,
 } from './interfaces/authServiceLogin';
 
@@ -51,7 +52,7 @@ export class AuthService {
   issueAccessToken({ user }: IAuthServiceGetAccessToken): string {
     return this.jwtService.sign(
       { sub: user.id },
-      { secret: 'my-secret-key', expiresIn: '1h' },
+      { secret: 'my-secret-key', expiresIn: '30s' },
     );
   }
 
@@ -70,5 +71,9 @@ export class AuthService {
     // 배포환경 (보안 관련 옵션 추가)
     // context.res.setHeader('set-Cookie', `refreshToken=${refreshToken}; path=/; domain=.mybacksite.com; SameSite=None; Secure; httpOnly`);
     // context.res.setHeader('Access-Control-Allow-Origin', 'https://myfrontsite.com');
+  }
+
+  restoreAccessToken({ user }: IAuthServiceRestoreAccessToken): string {
+    return this.issueAccessToken({ user });
   }
 }

@@ -1,4 +1,4 @@
-import { IContext } from '../../../commons/interfaces/context';
+import { IContext, IAuthUser } from '../../../commons/interfaces/context';
 import { User } from '../../users/entities/UserEntitity';
 
 export interface IAuthServiceLogin {
@@ -8,10 +8,14 @@ export interface IAuthServiceLogin {
 }
 
 export interface IAuthServiceGetAccessToken {
-  user: User;
+  user: User | IAuthUser['user'];
 }
 
 export interface IAuthServiceSetRefreshToken {
   user: User;
   context: IContext;
+}
+
+export interface IAuthServiceRestoreAccessToken {
+  user: IAuthUser['user'];
 }

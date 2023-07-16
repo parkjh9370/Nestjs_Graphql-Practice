@@ -4,7 +4,7 @@ import { AuthGuard } from '@nestjs/passport';
 
 import { User } from './entities/UserEntitity';
 import { UserService } from './UserService';
-import { GqlAccessGuard } from '../auth/guard/GqlAuthGuard';
+import { GqlAuthGuard } from '../auth/guard/GqlAuthGuard';
 
 @Resolver()
 export class UserResolver {
@@ -12,7 +12,7 @@ export class UserResolver {
     private readonly userService: UserService, //
   ) {}
 
-  @UseGuards(GqlAccessGuard)
+  @UseGuards(GqlAuthGuard('access'))
   @Query(() => String)
   fetchUser(): string {
     console.log('인가에 성공하였습니다');
