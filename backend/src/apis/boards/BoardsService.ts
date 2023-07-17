@@ -17,19 +17,19 @@ export class BoardsService {
     const result = [
       {
         number: 1,
-        writer: '점수',
-        title: '제목1',
-        contents: '내용1',
+        writer: 'aiden',
+        title: 'grpahQLㅎㅎ',
+        contents: 'ㅎㅎㅎ',
       },
       {
         number: 2,
-        writer: '점수2',
+        writer: 'park',
         title: '제목2',
         contents: '내용2',
       },
       {
         number: 3,
-        writer: '점수3',
+        writer: 'writer',
         title: '제목3',
         contents: '내용3',
       },
