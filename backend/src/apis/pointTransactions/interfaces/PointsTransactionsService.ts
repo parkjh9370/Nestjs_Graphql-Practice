@@ -1,4 +1,4 @@
-import { IAuthUser } from '../../commons/interfaces/context';
+import { IAuthUser } from '../../../commons/interfaces/context';
 
 export interface IPointsTransactionsServiceCreate {
   impUid: string;

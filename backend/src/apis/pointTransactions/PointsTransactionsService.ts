@@ -2,7 +2,7 @@ import { Repository } from 'typeorm';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 
-import { User } from '../apis/users/entities/UserEntitity';
+import { User } from '../users/entities/UserEntitity';
 import {
   PointTransaction,
   POINT_TRANSACTION_STATUS_ENUM,
@@ -32,6 +32,9 @@ export class PointsTransactionsService {
       user: _user,
       status: POINT_TRANSACTION_STATUS_ENUM.PAYMENT,
     });
+
+    // 추가 검증 절차: 결제 내역 조회, 인증 (https://api.iamport.kr/#/)
+
     await this.pointsTransactionsRepository.save(pointTransaction);
 
     const user = await this.usersRepository.findOne({

@@ -1,6 +1,6 @@
 import { Field, Int, ObjectType, registerEnumType } from '@nestjs/graphql';
 
-import { User } from '../../apis/users/entities/UserEntitity';
+import { User } from '../../users/entities/UserEntitity';
 import {
   Column,
   CreateDateColumn,

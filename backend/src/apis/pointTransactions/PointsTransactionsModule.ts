@@ -4,7 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { PointsTransactionsResolver } from './PointsTransactionsResolver';
 import { PointsTransactionsService } from './PointsTransactionsService';
 import { PointTransaction } from './entities/PointTransactionEntity';
-import { User } from '../apis/users/entities/UserEntitity';
+import { User } from '../users/entities/UserEntitity';
 
 @Module({
   imports: [

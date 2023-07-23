@@ -11,7 +11,7 @@ import { ProductCategoryModule } from './apis/productsCategories/ProductCategory
 import { ProductsSalesLocationModule } from './apis/productsSalesLocations/ProductsSalesLocationModule';
 import { ProductsTagsModule } from './apis/productsTags/ProductsCategoriesModule';
 import { AuthModule } from './apis/auth/authModule';
-import { PointsTransactionsModule } from './pointTransactions/PointsTransactionsModule';
+import { PointsTransactionsModule } from './apis/pointTransactions/PointsTransactionsModule';
 
 const typeOrmModuleOptions = {
   useFactory: async (): Promise<TypeOrmModuleOptions> => ({

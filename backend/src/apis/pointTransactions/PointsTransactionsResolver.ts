@@ -1,8 +1,8 @@
 import { UseGuards } from '@nestjs/common';
 import { Args, Context, Int, Mutation, Resolver } from '@nestjs/graphql';
 
-import { IContext } from '../commons/interfaces/context';
-import { GqlAuthGuard } from '../apis/auth/guard/GqlAuthGuard';
+import { IContext } from '../../commons/interfaces/context';
+import { GqlAuthGuard } from '../auth/guard/GqlAuthGuard';
 import { PointTransaction } from './entities/PointTransactionEntity';
 import { PointsTransactionsService } from './PointsTransactionsService';
 
